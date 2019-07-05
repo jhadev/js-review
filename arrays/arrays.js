@@ -131,6 +131,20 @@ var sum = evensArray.reduce(function(accumulator, currentValue) {
 
 console.log('sum variable now contains the sum of the evensArray: ', sum);
 
+// sum an array of numbers without .reduce()
+
+function sumOfArray(arrayName) {
+  var sum = 0;
+
+  for (var i = 0; i < arrayName.length; i++) {
+    sum += arrayName[i];
+  }
+
+  return sum;
+}
+
+console.log(sumOfArray(evensArray));
+
 // The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.
 
 // our slicedNumbersArray variable will return a new array with only the numbers at index 3, 4, 5, 6, 7 - the second argument indicates the end point but does not include it in the new array

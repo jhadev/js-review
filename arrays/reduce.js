@@ -79,3 +79,22 @@ var anotherLongString = `wolf farm-to-table banh mi pug leggings scenester bitte
 
 // 'e' appears 142 times in the string above and our function returns 'e'
 console.log(findMostFreqChar(anotherLongString));
+
+// merge an array of arrays into one array
+
+var nestedArrays = [
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10, 11, 12],
+  [13, 14, 15, 16],
+  [17, 18, 19, 20]
+];
+
+// we can use reduce to merge this array of nested arrays into one array
+
+var mergedArray = nestedArrays.reduce(function(a, b) {
+  // here we use .concat() to merge each array at every iteration of the loop.
+  return a.concat(b);
+}, []);
+
+console.log(mergedArray);
