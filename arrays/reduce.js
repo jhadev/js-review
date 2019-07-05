@@ -42,3 +42,40 @@ mostFreqCharacter = mostFreqCharacter.reduce(function(a, b) {
 
 // 's' appeared 10 times in our string and our reduce function returns 's'.
 console.log(mostFreqCharacter);
+
+// now let's make this into a function that can be reused on any string.
+
+function findMostFreqChar(string) {
+  // make sure all letters are lowercase so we get a true count. if we wanted this function to be case insensitive we can leave this out.
+  string = string.toLowerCase();
+
+  // turn string into an array of every letter
+  var arrayOfAllCharacters = string.split('');
+
+  var charCounter = arrayOfAllCharacters.reduce(function(obj, letter) {
+    // ignore spaces in the count
+
+    if (letter !== ' ') {
+      obj[letter] = (obj[letter] || 0) + 1;
+    }
+
+    return obj;
+  }, {});
+
+  console.log(charCounter);
+
+  var mostFreqCharacter = Object.keys(charCounter).reduce(function(a, b) {
+    if (charCounter[a] > charCounter[b]) {
+      return a;
+    } else {
+      return b;
+    }
+  });
+
+  return mostFreqCharacter;
+}
+
+var anotherLongString = `wolf farm-to-table banh mi pug leggings scenester bitters tofu 3 wolf moon letterpress Vice locavore Odd Future paleo mustache DIY aesthetic chillwave photo booth hashtag cliche Williamsburg irony XOXO Schlitz PBR cornhole craft beer semiotics fixie Austin gentrify Blue Bottle pop-up normcore pork belly blog viral deep v vegan biodiesel typewriter Pitchfork four loko Echo Park Helvetica meh ethical quinoa keffiyeh before they sold out kogi bespoke synth authentic VHS sustainable wayfarers raw denim fanny pack whatever YOLO fingerstache plaid brunch chambray gastropub asymmetrical gluten-free freegan umami McSweeney's fashion axe salvia ennui 90's readymade art party Portland cardigan cray tousled stumptown tote bag selfies crucifix skateboard small batch PBR&B tattooed Marfa heirloom sartorial direct trade  Shoreditch Brooklyn Truffaut American Apparel dreamcatcher +1 sriracha lomo Tumblr High Life keytar flexitarian food truck swag you probably haven't heard of them 8-bit pickled Thundercats polaroid street art church-key disrupt Kickstarter literally roof party shabby chic artisan Godard flannel messenger bag pour-over butcher narwhal seitan post-ironic ugh meggings forage squid vinyl bicycle rights actually retro hoodie next level Cosby sweater occupy beard Banksy Wes Anderson Carles kitsch kale chips mlkshk mumblecore distillery lo-fi try-hard master cleanse cred Tonx iPhone drinking vinegar chia put a bird on it Intelligentsia jean shorts trust fund fap banjo single-origin coffee Neutra Etsy Pinterest selvage organic Bushwick slow-carb twee yr hella mixtape`;
+
+// 'e' appears 142 times in the string above and our function returns 'e'
+console.log(findMostFreqChar(anotherLongString));
