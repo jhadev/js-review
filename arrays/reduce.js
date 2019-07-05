@@ -43,6 +43,15 @@ mostFreqCharacter = mostFreqCharacter.reduce(function(a, b) {
 // 's' appeared 10 times in our string and our reduce function returns 's'.
 console.log(mostFreqCharacter);
 
+/* 
+
+================================================================================
+================================================================================
+
+*/
+
+var anotherLongString = `wolf farm-to-table banh mi pug leggings scenester bitters tofu 3 wolf moon letterpress Vice locavore Odd Future paleo mustache DIY aesthetic chillwave photo booth hashtag cliche Williamsburg irony XOXO Schlitz PBR cornhole craft beer semiotics fixie Austin gentrify Blue Bottle pop-up normcore pork belly blog viral deep v vegan biodiesel typewriter Pitchfork four loko Echo Park Helvetica meh ethical quinoa keffiyeh before they sold out kogi bespoke synth authentic VHS sustainable wayfarers raw denim fanny pack whatever YOLO fingerstache plaid brunch chambray gastropub asymmetrical gluten-free freegan umami McSweeney's fashion axe salvia ennui 90's readymade art party Portland cardigan cray tousled stumptown tote bag selfies crucifix skateboard small batch PBR&B tattooed Marfa heirloom sartorial direct trade  Shoreditch`;
+
 // now let's make this into a function that can be reused on any string.
 
 function findMostFreqChar(string) {
@@ -62,6 +71,15 @@ function findMostFreqChar(string) {
     return obj;
   }, {});
 
+  /* 
+  see the empty object brackets above:
+  from Mozilla web docs -
+  initialValue Optional
+  A value to use as the first argument to the first call of the callback. If no initialValue is supplied, the first element in the array will be used and skipped. Calling reduce() on an empty array without an initialValue will throw a TypeError.
+
+  here we set that initial value to an empty object
+  */
+
   console.log(charCounter);
 
   var mostFreqCharacter = Object.keys(charCounter).reduce(function(a, b) {
@@ -75,10 +93,15 @@ function findMostFreqChar(string) {
   return mostFreqCharacter;
 }
 
-var anotherLongString = `wolf farm-to-table banh mi pug leggings scenester bitters tofu 3 wolf moon letterpress Vice locavore Odd Future paleo mustache DIY aesthetic chillwave photo booth hashtag cliche Williamsburg irony XOXO Schlitz PBR cornhole craft beer semiotics fixie Austin gentrify Blue Bottle pop-up normcore pork belly blog viral deep v vegan biodiesel typewriter Pitchfork four loko Echo Park Helvetica meh ethical quinoa keffiyeh before they sold out kogi bespoke synth authentic VHS sustainable wayfarers raw denim fanny pack whatever YOLO fingerstache plaid brunch chambray gastropub asymmetrical gluten-free freegan umami McSweeney's fashion axe salvia ennui 90's readymade art party Portland cardigan cray tousled stumptown tote bag selfies crucifix skateboard small batch PBR&B tattooed Marfa heirloom sartorial direct trade  Shoreditch`;
-
 // 'e' appears 78 times in the string above and our function returns 'e'
 console.log(findMostFreqChar(anotherLongString));
+
+/* 
+
+================================================================================
+================================================================================
+
+*/
 
 // most freq character no reduce
 
@@ -102,11 +125,14 @@ function charCounterAsObj(string) {
 }
 
 function findMostFreqCharNoReduce(str) {
-  // the beautiful thing about JavaScript and programming in general is there are many ways
-  // to arrive at the same result. some people hate this... but it allows you to problem solve in your own way.
+  /*
+  the beautiful thing about JavaScript and programming in general is there are many ways
+  to arrive at the same result. 
+  some people hate this... but it allows you to problem solve in your own way.
+  */
   var countObj = charCounterAsObj(str);
   console.log(countObj);
-  // one way to do come to the same result as above is to sort the object by the object values. In this example. The most frequent character will be the last element in the array.
+  // one way to come to the same result as above is to sort the object by the object values.
   var letters = Object.keys(countObj);
   var sortedLetters = letters.sort(function(a, b) {
     return countObj[a] - countObj[b];
@@ -121,6 +147,13 @@ function findMostFreqCharNoReduce(str) {
 
 // using the same string as above we get the same exact result! 'e' is the most freq char and it appears 78 times in the string.
 console.log(findMostFreqCharNoReduce(anotherLongString));
+
+/* 
+
+================================================================================
+================================================================================
+
+*/
 
 // merge an array of arrays into one array
 

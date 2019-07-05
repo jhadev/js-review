@@ -3,6 +3,7 @@
 // almost everything at it's core is an object in javascript. for example:
 
 // here we are comparing the type of an empty array with the type of an empty object. and it logs 'true'
+
 if (typeof [] === typeof {}) {
   console.log('true');
 } else {
@@ -13,16 +14,19 @@ if (typeof [] === typeof {}) {
 // Even the primitive values have methods they inherit from their object prototypes.
 // Don't worry about this we will explain it later in class.
 
-/* remember we have been using alot of methods whether you realize it or not. 
+/* 
+remember we have been using alot of methods whether you realize it or not. 
 For example: you have seen .toLowerCase() right?
 
 We know this takes a string like 'I'M ANGRY THIS IS ALL CAPS!!!' and converts all the characters
-to lowercase. This is because String is basically a built in object in JavaScript and has methods attached to it for us to use. Because JavaScript is a dynamically typed language we don't
+to lowercase. 
+This is because String is basically a built in object in JavaScript and has methods attached to it for us to use. 
+Because JavaScript is a dynamically typed language we don't
 have to explicitly say that a string is a string like other languages. 
 
 In the example objects below we are creating our own objects and attaching methods to them as a key.
 
-the name of the method is the key and the function to run when we call it is the value.
+The name of the method is the key and the function to run when we call it is the value.
 */
 
 // we have 2 actor objects listed below that contain the following properties:
@@ -114,7 +118,8 @@ console.log(actorTwo.onlyFantasy());
 
 // how can we access the object that contains info about Natalie Portman's first star wars movie?
 
-// we know it is inside the actorTwo object and that appearedIn is an array. The Phantom Menace is the first movie in that array. so we say:
+// we know it is inside the actorTwo object and that value of appearedIn is an array.
+// The Phantom Menace is the first movie in that array. so we say:
 
 var phantomMenace = actorTwo.appearedIn[0];
 

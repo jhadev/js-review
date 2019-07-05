@@ -68,11 +68,19 @@ console.log(numbers.includes(300));
 
 console.log(numbers.includes(37));
 
+/* 
+
+================================================================================
+================================================================================
+
+*/
+
 // lets say we want to find a specific element in the array to use somewhere else. this example uses numbers but imagine we were working with an array of objects
 
 // The find() method returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.
 
-// we will define a function to use this and it will take 2 arguments. the array to check and our query parameter.
+// we will define a function to use this and it will take 2 arguments:
+// the array to check and our query parameter.
 // we can now reuse this function for any array.
 
 function findItemInArray(arr, query) {
@@ -84,9 +92,17 @@ function findItemInArray(arr, query) {
 }
 
 // here we store the result of our function in a variable. We passed the array variable name we want to search as the first argument and the item we are looking for as the second argument.
+
 var ten = findItemInArray(numbers, 10);
 
 console.log(ten);
+
+/* 
+
+================================================================================
+================================================================================
+
+*/
 
 // The filter() method creates a new array with all elements that pass the test implemented by the provided function.
 
@@ -97,6 +113,13 @@ var filtered = numbers.filter(function(number) {
 });
 
 console.log(filtered);
+
+/* 
+
+================================================================================
+================================================================================
+
+*/
 
 // another powerful array method is .map()
 
@@ -164,6 +187,13 @@ console.log(
 // sliced numbers array has been changed and now contains the numbers that were not removed by .splice
 console.log('slicedNumbersArray variable: ', slicedNumbersArray);
 
+/* 
+
+================================================================================
+================================================================================
+
+*/
+
 // another array method that is useful is .join()
 
 // The join() method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator.
@@ -172,6 +202,13 @@ console.log('slicedNumbersArray variable: ', slicedNumbersArray);
 var numbersAsString = numbers.join(', ');
 
 console.log('numbersAsString variable: ', numbersAsString);
+
+/* 
+
+================================================================================
+================================================================================
+
+*/
 
 // lets go back to our original function and change it up to make it a little more reuseable to demo arguments
 
