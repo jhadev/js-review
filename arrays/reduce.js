@@ -74,10 +74,13 @@ function findMostFreqChar(string) {
   /* 
   see the empty object brackets above:
   from Mozilla web docs -
+   
   initialValue Optional
-  A value to use as the first argument to the first call of the callback. If no initialValue is supplied, the first element in the array will be used and skipped. Calling reduce() on an empty array without an initialValue will throw a TypeError.
+  A value to use as the first argument to the first call of the callback. 
+  If no initialValue is supplied, the first element in the array will be used and skipped.
+  Calling reduce() on an empty array without an initialValue will throw a TypeError.
 
-  here we set that initial value to an empty object
+  Here we set that initial value to an empty object
   */
 
   console.log(charCounter);

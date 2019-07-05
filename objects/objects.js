@@ -58,9 +58,9 @@ var actorOne = {
   fullName: function() {
     return this.firstName + ' ' + this.lastName;
   },
-  onlyComedy: function() {
+  moviesByGenre: function(genre) {
     return this.appearedIn.filter(function(movie) {
-      return movie.genre === 'Comedy';
+      return movie.genre === genre;
     });
   }
 };
@@ -92,9 +92,9 @@ var actorTwo = {
   fullName: function() {
     return this.firstName + ' ' + this.lastName;
   },
-  onlyFantasy: function() {
+  moviesByGenre: function(genre) {
     return this.appearedIn.filter(function(movie) {
-      return movie.genre === 'Fantasy';
+      return movie.genre === genre;
     });
   }
 };
@@ -114,8 +114,6 @@ console.log(actorOne[bruce]);
 
 // objects can contain strings, numbers, booleans, arrays, and even nested objects inside objects.
 
-console.log(actorTwo.onlyFantasy());
-
 // how can we access the object that contains info about Natalie Portman's first star wars movie?
 
 // we know it is inside the actorTwo object and that value of appearedIn is an array.
@@ -125,3 +123,41 @@ var phantomMenace = actorTwo.appearedIn[0];
 
 // here we can see the entire object
 console.log(phantomMenace);
+
+/* 
+
+================================================================================
+================================================================================
+
+*/
+
+// since both these objects share a method that is called fullName
+// let's put them in an array and run that method in a loop and console.log it.
+
+var actors = [actorOne, actorTwo];
+
+for (var i = 0; i < actors.length; i++) {
+  console.log(actors[i].fullName());
+}
+
+// notice we log both actors in the arrays full name by using that method.
+
+/* 
+
+================================================================================
+================================================================================
+
+*/
+
+// each actor object also has a method called moviesByGenre.
+
+// it lets us pass in a genre as a string argument
+// and returns all the objects in the appearedIn array that match the genre we pass in.
+console.log(actorTwo.moviesByGenre('Fantasy'));
+
+// lets try this method in a loop like above and look for sci-fi movies
+// the actors have appeared in.
+
+for (var i = 0; i < actors.length; i++) {
+  console.log(actors[i].fullName(), actors[i].moviesByGenre('Sci-Fi'));
+}
