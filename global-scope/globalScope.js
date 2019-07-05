@@ -159,3 +159,25 @@ function concatenatedStrings() {
 }
 
 console.log(concatenatedStrings());
+
+// more scope
+
+function layerOne(firstString) {
+  function layerTwo(secondString) {
+    return firstString + ' ' + secondString;
+  }
+  // here we are returning the reference to the layerTwo function but we are not calling it hence no ()
+  return layerTwo;
+}
+
+// store the result of layer one in a variable. if we run layerOne it actually returns the second function for us to use.
+
+var secondLayer = layerOne('Hi my name is');
+
+console.log(secondLayer);
+
+// to get access to our string we need to now call firstLayer function and pass in another string
+
+var finalResult = secondLayer('Josh');
+
+console.log(finalResult);
