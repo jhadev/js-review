@@ -75,10 +75,52 @@ function findMostFreqChar(string) {
   return mostFreqCharacter;
 }
 
-var anotherLongString = `wolf farm-to-table banh mi pug leggings scenester bitters tofu 3 wolf moon letterpress Vice locavore Odd Future paleo mustache DIY aesthetic chillwave photo booth hashtag cliche Williamsburg irony XOXO Schlitz PBR cornhole craft beer semiotics fixie Austin gentrify Blue Bottle pop-up normcore pork belly blog viral deep v vegan biodiesel typewriter Pitchfork four loko Echo Park Helvetica meh ethical quinoa keffiyeh before they sold out kogi bespoke synth authentic VHS sustainable wayfarers raw denim fanny pack whatever YOLO fingerstache plaid brunch chambray gastropub asymmetrical gluten-free freegan umami McSweeney's fashion axe salvia ennui 90's readymade art party Portland cardigan cray tousled stumptown tote bag selfies crucifix skateboard small batch PBR&B tattooed Marfa heirloom sartorial direct trade  Shoreditch Brooklyn Truffaut American Apparel dreamcatcher +1 sriracha lomo Tumblr High Life keytar flexitarian food truck swag you probably haven't heard of them 8-bit pickled Thundercats polaroid street art church-key disrupt Kickstarter literally roof party shabby chic artisan Godard flannel messenger bag pour-over butcher narwhal seitan post-ironic ugh meggings forage squid vinyl bicycle rights actually retro hoodie next level Cosby sweater occupy beard Banksy Wes Anderson Carles kitsch kale chips mlkshk mumblecore distillery lo-fi try-hard master cleanse cred Tonx iPhone drinking vinegar chia put a bird on it Intelligentsia jean shorts trust fund fap banjo single-origin coffee Neutra Etsy Pinterest selvage organic Bushwick slow-carb twee yr hella mixtape`;
+var anotherLongString = `wolf farm-to-table banh mi pug leggings scenester bitters tofu 3 wolf moon letterpress Vice locavore Odd Future paleo mustache DIY aesthetic chillwave photo booth hashtag cliche Williamsburg irony XOXO Schlitz PBR cornhole craft beer semiotics fixie Austin gentrify Blue Bottle pop-up normcore pork belly blog viral deep v vegan biodiesel typewriter Pitchfork four loko Echo Park Helvetica meh ethical quinoa keffiyeh before they sold out kogi bespoke synth authentic VHS sustainable wayfarers raw denim fanny pack whatever YOLO fingerstache plaid brunch chambray gastropub asymmetrical gluten-free freegan umami McSweeney's fashion axe salvia ennui 90's readymade art party Portland cardigan cray tousled stumptown tote bag selfies crucifix skateboard small batch PBR&B tattooed Marfa heirloom sartorial direct trade  Shoreditch`;
 
-// 'e' appears 142 times in the string above and our function returns 'e'
+// 'e' appears 78 times in the string above and our function returns 'e'
 console.log(findMostFreqChar(anotherLongString));
+
+// most freq character no reduce
+
+function charCounterAsObj(string) {
+  // here we can chain methods together
+  string = string.toLowerCase().split('');
+  // declare an empty object for the count
+  var countObj = {};
+
+  for (var i = 0; i < string.length; i++) {
+    var currentCharacter = string[i];
+    // ignore spaces
+    if (currentCharacter !== ' ') {
+      // same thing we used in the .reduce function.
+      countObj[currentCharacter] = (countObj[currentCharacter] || 0) + 1;
+    }
+  }
+
+  // return our filled count object so we can access it somewhere else.
+  return countObj;
+}
+
+function findMostFreqCharNoReduce(str) {
+  // the beautiful thing about JavaScript and programming in general is there are many ways
+  // to arrive at the same result. some people hate this... but it allows you to problem solve in your own way.
+  var countObj = charCounterAsObj(str);
+  console.log(countObj);
+  // one way to do come to the same result as above is to sort the object by the object values. In this example. The most frequent character will be the last element in the array.
+  var letters = Object.keys(countObj);
+  var sortedLetters = letters.sort(function(a, b) {
+    return countObj[a] - countObj[b];
+  });
+
+  // in this case our most frequent character will always be the last element in the array.
+  var mostFreqCharacter = sortedLetters[sortedLetters.length - 1];
+
+  // return the character that appears the most in the string.
+  return mostFreqCharacter;
+}
+
+// using the same string as above we get the same exact result! 'e' is the most freq char and it appears 78 times in the string.
+console.log(findMostFreqCharNoReduce(anotherLongString));
 
 // merge an array of arrays into one array
 
