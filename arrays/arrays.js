@@ -127,7 +127,7 @@ console.log(evensArray);
 
 var sum = evensArray.reduce(function(accumulator, currentValue) {
   return accumulator + currentValue;
-});
+}, 0);
 
 console.log('sum variable now contains the sum of the evensArray: ', sum);
 
