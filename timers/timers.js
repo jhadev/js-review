@@ -57,28 +57,29 @@ $('.clearTimeout').on('click', function(event) {
 
 // we have to buttons in the html to attach our click events to, 1 button to start and 1 button to stop
 
-// first we create a variable to store our counter
+// first we create a variable to store our countdown
 // set it to 10 because we are going to countdown 10 seconds
 var countdown = 10;
 // declare a variable for our interval function. we will reassign this variable inside our click event
 var interval;
-// set a flag to determine in the interval is running. This is make it so we can't create new intervals are every click
+// set a flag to determine if the interval is running. This will make it so we can't create new intervals on every click
 var intervalRunning = false;
 
 $('.startCountdown').on('click', function(event) {
   // when this button is clicked we want to start out interval and it is going to run every seconds
-
+  // if intervalRunning is false
   if (!intervalRunning) {
     console.log('WORKED');
+    // set intervalRunning to true
     intervalRunning = true;
     interval = setInterval(function() {
-      // in the callback function we are going to do a few things. first we decrement counter variable
+      // in the callback function we are going to do a few things. first we decrement countdown variable
       countdown -= 1;
       console.log(countdown);
-      // we print the counter variable to the page now. remember this we happen every second. because we set it to happen every 1000ms below.
+      // we print the countdown variable to the page now. remember this will happen every second. because we set it to happen every 1000ms below.
       $('.countdown').text(countdown);
 
-      // if we don't set an exit condition this timer will run forever.
+      // if we don't set an exit condition this interval will run forever.
       // this is one way to stop it
       if (countdown === 0) {
         clearInterval(interval);
