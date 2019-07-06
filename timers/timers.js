@@ -62,27 +62,37 @@ $('.clearTimeout').on('click', function(event) {
 var countdown = 10;
 // declare a variable for our interval function. we will reassign this variable inside our click event
 var interval;
+// set a flag to determine in the interval is running. This is make it so we can't create new intervals are every click
+var intervalRunning = false;
 
 $('.startCountdown').on('click', function(event) {
   // when this button is clicked we want to start out interval and it is going to run every seconds
 
-  interval = setInterval(function() {
-    // in the callback function we are going to do a few things. first we decrement counter variable
-    countdown -= 1;
-    console.log(countdown);
-    // we print the counter variable to the page now. remember this we happen every second. because we set it to happen every 1000ms below.
-    $('.countdown').text(countdown);
+  if (!intervalRunning) {
+    console.log('WORKED');
+    intervalRunning = true;
+    interval = setInterval(function() {
+      // in the callback function we are going to do a few things. first we decrement counter variable
+      countdown -= 1;
+      console.log(countdown);
+      // we print the counter variable to the page now. remember this we happen every second. because we set it to happen every 1000ms below.
+      $('.countdown').text(countdown);
 
-    // if we don't set an exit condition this timer will run forever.
-    // this is one way to stop it
-    if (countdown === 0) {
-      clearInterval(interval);
-    }
-  }, 1000);
+      // if we don't set an exit condition this timer will run forever.
+      // this is one way to stop it
+      if (countdown === 0) {
+        clearInterval(interval);
+        // when countdown is 0 set intervalRunning back to false and countdown back to 10
+        intervalRunning = false;
+        countdown = 10;
+      }
+    }, 1000);
+  }
 });
 
 // we can also stop it with another event
 
 $('.stopCountdown').on('click', function(event) {
+  intervalRunning = false;
   clearInterval(interval);
 });

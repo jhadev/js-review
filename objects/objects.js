@@ -119,7 +119,7 @@ console.log(actorOne[bruce]);
 // we know it is inside the actorTwo object and that value of appearedIn is an array.
 // The Phantom Menace is the first movie in that array. so we say:
 
-var phantomMenace = actorTwo.appearedIn[0];
+var phantomMenace = actorTwo.appearedIn[0].releaseYear;
 
 // here we can see the entire object
 console.log(phantomMenace);
@@ -135,6 +135,10 @@ console.log(phantomMenace);
 // let's put them in an array and run that method in a loop and console.log it.
 
 var actors = [actorOne, actorTwo];
+
+var otherActors = [];
+
+otherActors.push(actorOne, actorTwo);
 
 for (var i = 0; i < actors.length; i++) {
   console.log(actors[i].fullName());

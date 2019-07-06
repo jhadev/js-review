@@ -81,11 +81,11 @@ function demo() {
 // when we call demo() the string will get logged to the console but we can't use it.
 demo();
 
+// console.log(locallyScopedVariable);
 /* 
 
 if we log locallyScopedVariable in the global scope we get an error saying that this variable is not defined because it doesn't exist in the global scope even if we call the function and it also halts the rest of our code from executing.
 
-console.log(locallyScopedVariable);
 
 we can fix this in multiple ways
 
@@ -161,6 +161,17 @@ function concatenatedStrings() {
 console.log(concatenatedStrings());
 
 // more scope
+
+function adder(x, y, z) {
+  var sum = x + y + z;
+  return sum;
+}
+
+var res = adder(4, 10, 17);
+var anotherResult = adder(18, 28, 32);
+
+console.log(res);
+console.log(anotherResult);
 
 function layerOne(firstString) {
   function layerTwo(secondString) {

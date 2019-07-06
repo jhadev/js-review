@@ -64,6 +64,11 @@ console.log(numbers);
 
 // .includes() can check if the value passed into the argument of this method is present in the array - returns true or false VERY USEFUL
 
+var string = 'adjkfhsdjfhsjkfhsdjkf';
+
+console.log(string.indexOf('a'));
+console.log(string.includes('s'));
+
 console.log(numbers.includes(300));
 
 console.log(numbers.includes(37));
@@ -83,9 +88,15 @@ console.log(numbers.includes(37));
 // the array to check and our query parameter.
 // we can now reuse this function for any array.
 
-function findItemInArray(arr, query) {
+var thirty = numbers.find(function(number) {
+  return number === 30;
+});
+
+console.log(thirty);
+
+function findItemInArray(arr, searchTerm) {
   var found = arr.find(function(element) {
-    return element === query;
+    return element === searchTerm;
   });
 
   return found;
@@ -96,6 +107,12 @@ function findItemInArray(arr, query) {
 var ten = findItemInArray(numbers, 10);
 
 console.log(ten);
+
+var names = ['Sheriff', 'Darius', 'Stephen', 'Josh'];
+
+var darius = findItemInArray(names, 'Darius');
+
+console.log(darius);
 
 /* 
 
@@ -244,6 +261,37 @@ function populateLocalArray(existingArrayName, number) {
 var newArrayOfMultiples = populateLocalArray(numbers, 2);
 
 console.log('FROM OUR populateLocalArray FUNCTION: ', newArrayOfMultiples);
+
+// now we can use any operator. ADD TO THIS FOR CLARITY
+
+function populateLocalArraySwitch(existingArrayName, number, operator) {
+  var array = [];
+  for (var i = 0; i < existingArrayName.length; i++) {
+    switch (operator) {
+      case '+':
+        array.push(i + number);
+        break;
+      case '-':
+        array.push(i - number);
+        break;
+      case '*':
+        array.push(i * number);
+        break;
+      case '/':
+        array.push(i / number);
+        break;
+      case '**':
+        array.push(i ** number);
+        break;
+      default:
+        console.log('STOP YELLING AT ME');
+    }
+  }
+
+  return array;
+}
+
+console.log(populateLocalArraySwitch(numbers, 5, '/'));
 
 // lets take a look at another way to iterate over an array
 
